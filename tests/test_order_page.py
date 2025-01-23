@@ -1,6 +1,5 @@
 import allure
 import pytest
-from locators.order_page_locators import OrderPageLocators
 from pages.order_page import OrderPage
 from helpers.data import DataUser
 from helpers.urls import Urls
@@ -32,8 +31,7 @@ class TestOrderPage:
         assert current_url == Urls.BASE_URL, f"Ожидалось: {Urls.BASE_URL}, Получено:  {current_url}"
 
         order_page.open_dzen_link()
-        windows = driver.window_handles
-        driver.switch_to.window(windows[1])
+        order_page.switch_to_window(1)
         order_page.url_to_be(Urls.DZEN_URL)
         current_url = driver.current_url
         assert current_url == Urls.DZEN_URL, f"Ожидалось: {Urls.DZEN_URL}, Получено:  {current_url}"

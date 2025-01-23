@@ -47,3 +47,8 @@ class BasePage:
     @allure.step("Взять текст элемента")
     def check_text(self, locator, timeout=10):
         return self.element_is_visible(locator, timeout).text
+
+    @allure.step("Переключиться на другое окно браузера")
+    def switch_to_window(self, index):
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[index])
