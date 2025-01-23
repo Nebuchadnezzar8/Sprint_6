@@ -46,4 +46,4 @@ class BasePage:
 
     @allure.step("Взять текст элемента")
     def check_text(self, locator, timeout=10):
-        return wait(self.driver, timeout).until(EC.visibility_of_element_located(locator)).text
+        return self.element_is_visible(locator, timeout).text
