@@ -27,6 +27,10 @@ class OrderPage(BasePage):
         self.click_element(OrderPageLocators.ORDER_BUTTON_FORM)
         self.click_element(OrderPageLocators.ORDER_BUTTON_CONFIRM)
 
+    @allure.step("Проверяем, что модальное окно 'Заказ оформлен' отображается на экране")
+    def is_order_modal_visible(self):
+        return self.element_is_visible(OrderPageLocators.MODAL_WINDOW)
+
     @allure.step("Проверяем ссылку на главную страницу через лого")
     def open_scooter_links(self):
         self.click_element(OrderPageLocators.ORDER_BUTTON_STATUS)

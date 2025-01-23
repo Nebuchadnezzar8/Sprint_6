@@ -23,7 +23,7 @@ class TestOrderPage:
         order_page.fill_in_the_second_form(order_data)
 
         with allure.step(f"Проверяем что заказ был создан"):
-            modal_visible = order_page.element_is_visible(OrderPageLocators.MODAL_WINDOW)
+            modal_visible = order_page.is_order_modal_visible()
             assert modal_visible, f"Модальное окно 'Заказ оформлен' не появилось. Текущее состояние: {modal_visible}"
 
         order_page.open_scooter_links()
