@@ -27,11 +27,9 @@ class TestOrderPage:
 
         order_page.open_scooter_links()
         order_page.url_to_be(Urls.BASE_URL)
-        current_url = driver.current_url
-        assert current_url == Urls.BASE_URL, f"Ожидалось: {Urls.BASE_URL}, Получено:  {current_url}"
+        assert order_page.get_current_url() == Urls.BASE_URL, f"Ожидалось: {Urls.BASE_URL}, Получено:  {order_page.get_current_url()}"
 
         order_page.open_dzen_link()
         order_page.switch_to_window(1)
         order_page.url_to_be(Urls.DZEN_URL)
-        current_url = driver.current_url
-        assert current_url == Urls.DZEN_URL, f"Ожидалось: {Urls.DZEN_URL}, Получено:  {current_url}"
+        assert order_page.get_current_url() == Urls.DZEN_URL, f"Ожидалось: {Urls.DZEN_URL}, Получено:  {order_page.get_current_url()}"

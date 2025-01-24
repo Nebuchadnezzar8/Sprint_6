@@ -52,3 +52,7 @@ class BasePage:
     def switch_to_window(self, index):
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[index])
+
+    @allure.step("Получить текущий URL")
+    def get_current_url(self):
+        return self.driver.current_url
